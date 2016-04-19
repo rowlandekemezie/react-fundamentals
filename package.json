@@ -1,0 +1,35 @@
+{
+  "name": "react-fundamentals",
+  "version": "1.0.0",
+  "description": "An introductory lesson to the basics of Reactjs library",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andela-rekemezie/react-fundamentals.git"
+  },
+  "keywords": [
+    "React",
+    "webpack",
+    "babel",
+    "react-dom"
+  ],
+  "author": "Rowland Ekemezie",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andela-rekemezie/react-fundamentals/issues"
+  },
+  "homepage": "https://github.com/andela-rekemezie/react-fundamentals#readme",
+  "devDependencies": {
+    "eslint-config-google": "^0.5.0",
+    "eslint-plugin-react": "^5.0.1"
+  },
+  "dependencies": {
+    "eslint": "^2.8.0",
+    "eslint-plugin-react": "^5.0.1",
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1"
+  }
+}
