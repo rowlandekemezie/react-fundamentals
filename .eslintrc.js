@@ -1,20 +1,27 @@
-module.exports = {
+(function() {
+  'use strict';
+
+  module.exports = {
     "env": {
-        "browser": true,
-        "node": true
+      "browser": true,
+      "node": true
 
     },
-    "ecmaFeatures": {
+    "parserOptions": {
+      "ecmaFeatures": {
         "jsx": true,
-         "es6": true,
+        "es6": true,
         "modules": true
 
+      }
     },
     "extends": "google",
     "plugins": [
-        "react"
+      "react"
     ],
+   
     "rules": {
-        "curly": [2, "multi-line"]
+      "curly": [2, "multi-line"]
     }
-};
+  };
+})();
