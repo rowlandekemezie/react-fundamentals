@@ -19,7 +19,7 @@ class App extends React.Component {
   componentDidMount() {
     console.log('Mounted');
     this.inc = setInterval(this.update, 500);
-    // console.log(ReactDOM.findDOMNode(this));
+    console.log(ReactDOM.findDOMNode(this));
   }
   render() {
     console.log('Rendering');
