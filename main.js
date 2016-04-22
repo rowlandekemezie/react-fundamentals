@@ -1,2 +1,2 @@
-import Wrapper from './App';
+import App from './App';
 
