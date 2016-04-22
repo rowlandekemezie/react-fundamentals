@@ -4,38 +4,73 @@ import ReactDOM from 'react-dom';
 class App extends React.Component {
   constructor() {
     super();
-    this.state = {increasing: false};
+    this.state = {
+      red: 0
+    };
     this.update = this.update.bind(this);
   }
 
   update() {
-    console.log("This is test for component will update");
-    ReactDOM.render(<App val={this.props.val + 1} />,
-      document.getElementById('app')
-   );
+    this.setState({
+      red: ReactDOM.findDOMNode(this.refs.red.refs.inp).value
+    });
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({increasing: nextProps.val > this.props.val});
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    return nextProps.val % 5 === 0;
-  }
-  componentDidUpdate(prevProps, prevState) {
-    console.log('prevProps', prevProps);
-  }
   render() {
-    console.log('Rendering');
-    console.log(this.state.increasing);
     return (
       <div>
-        <button onClick={this.update}>{this.props.val}</button>
+        <NumInt
+          ref = "red"
+          min = {0}
+          max = {255}
+          step = {1}
+          label = "red"
+          val = {Number(this.state.red)}
+          update={this.update}
+        />
       </div>
     );
   }
 }
 
-App.defaultProps = {val: 0};
+//  Refs is a way to reference the instance of our component in an application
+class NumInt extends React.Component {
+  render() {
+    let label = this.props.label !== '' ?
+     <label>{this.props.label} - {this.props.val}</label> : '';
+    return (
+      <div>
+        <input ref="inp"
+         min = {this.props.min}
+         max = {this.props.max}
+         step = {this.props.step}
+         type = {this.props.type}
+         defaultValue = {this.props.val}
+         onChange={this.props.update}
+         />
+         {label}
+      </div>
+  );
+  }
+}
 
-ReactDOM.render(<App />, document.getElementById('app'));
+NumInt.PropTypes = {
+  min: React.PropTypes.number,
+  max: React.PropTypes.number,
+  step: React.PropTypes.number,
+  val: React.PropTypes.number,
+  label: React.PropTypes.string,
+  update: React.PropTypes.func.isRequired,
+  type: React.PropTypes.oneOf(['range', 'number'])
+};
+NumInt.defaultProps = {
+  min: 0,
+  max: 0,
+  step: 1,
+  label: '',
+  type: 'range'
+};
+
+ReactDOM.render(
+  <App />, document.getElementById('app')
+);
