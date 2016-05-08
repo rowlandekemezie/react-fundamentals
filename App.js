@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+// This is more like a factory that accepts components as arguments.
+// Its a form of polymorphism that provides single interface for different compoents
 const Mixin = InnerComponent => class extends React.Component {
   constructor() {
     super();
