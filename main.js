@@ -1,0 +1,2 @@
+import Wrapper from './App';
+
